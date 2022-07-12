@@ -7,15 +7,17 @@
     android:orientation="vertical"
     tools:context=".ResultActivity">
 
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="HASIL"-->
-<!--        android:background="#61C758"-->
-<!--        android:padding="20dp"-->
-<!--        android:textSize="18sp"-->
-<!--        android:textColor="@color/white"-->
-<!--        />-->
+    <TextView
+        android:id="@+id/tittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HASIL"
+        android:background="#61C758"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <ImageView
         android:layout_width="match_parent"
