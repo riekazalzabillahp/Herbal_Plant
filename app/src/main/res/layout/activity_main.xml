@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
     <Button
-        android:id="@+id/detector"
+        android:id="@+id/btnDetector"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginHorizontal="40dp"
@@ -52,7 +52,7 @@
         android:text="PILIH GEJALA PENYAKIT"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/btnGallery"
-        app:layout_constraintTop_toBottomOf="@+id/detector"
+        app:layout_constraintTop_toBottomOf="@+id/btnDetector"
         tools:layout_editor_absoluteX="40dp" />
 
     <Button

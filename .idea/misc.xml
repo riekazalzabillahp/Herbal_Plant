@@ -3,9 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/HP/AndroidStudioProjects/HerbalDetector/app/src/main/res/layout/activity_detector.xml" value="0.17300724637681159" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/HerbalDetector/app/src/main/res/drawable/bg_half_rounded.xml" value="0.2546875" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/HerbalDetector/app/src/main/res/drawable/bg_shape.xml" value="0.2546875" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/HerbalDetector/app/src/main/res/drawable/bg_wave.xml" value="0.2546875" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/HerbalDetector/app/src/main/res/drawable/ic_search.xml" value="0.2546875" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/HerbalDetector/app/src/main/res/layout/activity_detector.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/HerbalDetector/app/src/main/res/layout/activity_galery.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/HerbalDetector/app/src/main/res/layout/activity_gallery.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/HerbalDetector/app/src/main/res/layout/activity_main.xml" value="0.22327898550724637" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/HerbalDetector/app/src/main/res/layout/activity_result.xml" value="0.6" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/HerbalDetector/app/src/main/res/layout/activity_result.xml" value="0.1" />
       </map>
     </option>
   </component>

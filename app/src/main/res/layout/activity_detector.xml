@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#61C758"
-        android:padding="20dp"
+        android:padding="15dp"
         android:text="DETEKSI TANAMAN OBAT"
         android:textColor="@color/white"
         android:textSize="18sp"
