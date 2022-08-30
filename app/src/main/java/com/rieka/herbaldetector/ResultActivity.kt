@@ -8,13 +8,13 @@ import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import com.rieka.herbaldetector.Model.ModelMain
+import com.rieka.herbaldetector.Model.Tanaman
 
 class ResultActivity : AppCompatActivity()  {
 
     lateinit var strNamaTanaman: String
     lateinit var strManfaatTanaman: String
-    lateinit var modelMain: ModelMain
+    lateinit var modelMain: Tanaman
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

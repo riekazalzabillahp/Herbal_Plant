@@ -15,6 +15,9 @@
             android:name=".DetectorActivity"
             android:exported="true" />
         <activity
+            android:name=".GalleryActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/primaryColor500"
     tools:context=".GalleryActivity"
     >
 
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="GALERI TANAMAN OBAT"
-        android:background="#61C758"
+        android:background="@color/primaryColor500"
         android:padding="15dp"
         android:textSize="18sp"
         android:textColor="@color/white"
@@ -32,11 +32,6 @@
         app:cardCornerRadius="25dp"
         tools:ignore="NotSibling">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="horizontal"
-            >
 
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/searchTanaman"
@@ -49,7 +44,6 @@
                 android:theme="@style/SearchView"
                 app:queryBackground="@android:color/transparent" />
 
-        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
@@ -62,37 +56,27 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="32dp">
+            android:layout_height="32dp"
+            >
 
             <View
                 android:layout_width="35dp"
                 android:layout_height="5dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="12dp"
+                android:layout_marginVertical="12dp"
                 android:background="@drawable/bg_shape"
                 android:backgroundTint="@color/colorPrimary" />
 
         </RelativeLayout>
 
-        <androidx.core.widget.NestedScrollView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListTanaman"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/bg_wave">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvListTanaman"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </LinearLayout>
-
-        </androidx.core.widget.NestedScrollView>
+            android:layout_marginTop="32dp"
+            android:layout_marginHorizontal="16dp"
+            tools:listitem="@layout/list_item_gallery"
+            />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -18,11 +18,11 @@ import java.io.IOException
 import java.nio.charset.StandardCharsets
 import java.util.*
 import com.rieka.herbaldetector.Adapter.MainAdapter
-import com.rieka.herbaldetector.Model.ModelMain
+import com.rieka.herbaldetector.Model.Tanaman
 import com.rieka.herbaldetector.databinding.ActivityGalleryBinding
 
 class GalleryActivity : AppCompatActivity() {
-    var modelMain: MutableList<ModelMain> = ArrayList()
+    var modelMain: MutableList<Tanaman> = ArrayList()
     lateinit var mainAdapter: MainAdapter
 
     private lateinit var binding : ActivityGalleryBinding
@@ -42,24 +42,17 @@ class GalleryActivity : AppCompatActivity() {
         }
 
         //transparent background searchview
-        val searchPlateId = binding.searchTanaman.context
-            .resources.getIdentifier("android:id/search_plate", null, null)
-        val searchPlate = binding.searchTanaman.findViewById<View>(searchPlateId)
-        searchPlate.setBackgroundColor(Color.TRANSPARENT)
-        binding.searchTanaman.setImeOptions(EditorInfo.IME_ACTION_DONE)
+//        val searchPlateId = binding.searchTanaman.context
+//            .resources.getIdentifier("android:id/search_plate", null, null)
+//        val searchPlate = binding.searchTanaman.findViewById<View>(searchPlateId)
+//        searchPlate.setBackgroundColor(Color.TRANSPARENT)
+//        binding.searchTanaman.setImeOptions(EditorInfo.IME_ACTION_DONE)
 
-        binding.searchTanaman.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                return false
-            }
+//        binding.searchTanaman.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
-            override fun onQueryTextChange(newText: String): Boolean {
-                mainAdapter.filter.filter(newText)
-                return true
-            }
-        })
+//        })
 
-        mainAdapter = MainAdapter(this, modelMain)
+        mainAdapter = MainAdapter()
         binding.rvListTanaman.apply {
             layoutManager = LinearLayoutManager(this@GalleryActivity)
             setHasFixedSize(true)
@@ -84,12 +77,13 @@ class GalleryActivity : AppCompatActivity() {
                 val jsonArray = jsonObject.getJSONArray("daftar_tanaman")
                 for (i in 0 until jsonArray.length()) {
                     val jsonObjectData = jsonArray.getJSONObject(i)
-                    val dataApi = ModelMain()
+                    val dataApi = Tanaman()
                     dataApi.nama = jsonObjectData.getString("nama")
                     dataApi.deskripsi = jsonObjectData.getString("deskripsi")
                     dataApi.image = jsonObjectData.getString("image_url")
                     modelMain.add(dataApi)
                 }
+                mainAdapter.setTanaman(modelMain)
                 mainAdapter.notifyDataSetChanged()
             } catch (e: JSONException) {
                 e.printStackTrace()
