@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.rieka.herbaldetector.UI.ViewImageActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +14,9 @@ class MainActivity : AppCompatActivity() {
         val btnDetector : Button = findViewById(R.id.btnDetector)
 
         btnDetector.setOnClickListener {
-            startActivity(Intent(this, DetectorActivity::class.java))
+            val intent = Intent(this, ViewImageActivity::class.java)
+            intent.putExtra("is_take", false)
+            startActivity(intent)
         }
 
         val btnGallery : Button = findViewById(R.id.btnGallery)

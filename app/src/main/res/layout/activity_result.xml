@@ -12,14 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="HASIL"
-        android:background="#61C758"
+        android:background="@color/primaryColor500"
         android:padding="15dp"
         android:textSize="18sp"
+        android:textStyle="bold"
         android:textColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <ImageView
+        android:id="@+id/HerbalImage"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         tools:src="@tools:sample/backgrounds/scenic"
@@ -41,6 +43,7 @@
         android:layout_marginTop="10dp"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,6 +54,22 @@
 
     <TextView
         android:id="@+id/tvManfaatTanaman"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cara Mengolah"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvCaraOlah"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

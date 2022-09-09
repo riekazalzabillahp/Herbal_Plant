@@ -10,11 +10,12 @@
         android:id="@+id/tittle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#61C758"
+        android:background="@color/primaryColor500"
         android:padding="15dp"
         android:text="DETEKSI TANAMAN OBAT"
         android:textColor="@color/white"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.camera.view.PreviewView
@@ -38,28 +39,17 @@
         app:layout_constraintStart_toStartOf="@id/camera"
         app:layout_constraintTop_toTopOf="@id/camera" />
 
-<!--    <View-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:background="@drawable/rectangle_red"-->
-<!--        android:layout_marginVertical="16dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@id/camera"-->
-<!--        app:layout_constraintDimensionRatio="1:1.75"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/camera"-->
-<!--        app:layout_constraintStart_toStartOf="@id/camera"-->
-<!--        app:layout_constraintTop_toTopOf="@id/camera" />-->
-
     <Button
         android:id="@+id/btn_camera"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#61C758"
-        android:text="Take Photo"
+        android:backgroundTint="@color/primaryColor500"
+        android:text="Take"
         android:textSize="14sp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/camera" />
+        app:layout_constraintTop_toBottomOf="@id/camera" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

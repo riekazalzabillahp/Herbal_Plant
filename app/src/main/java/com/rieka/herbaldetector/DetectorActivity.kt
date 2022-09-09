@@ -1,10 +1,13 @@
 package com.rieka.herbaldetector
 
+import android.app.Activity
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
@@ -17,6 +20,7 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import com.google.common.util.concurrent.ListenableFuture
 import com.rieka.herbaldetector.databinding.ActivityDetectorBinding
+import com.rieka.herbaldetector.UI.ViewImageActivity
 import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -110,7 +114,17 @@ class DetectorActivity : AppCompatActivity() {
 //    }
 
     private fun takePhoto() {
-        binding.camera.bitmap?.let { File(externalMediaDirs[0], "bitmap_test.jpg").writeBitmap(it, Bitmap.CompressFormat.JPEG, 100) }
+        binding.camera.bitmap?.let {
+            File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "bitmap_test.jpg").writeBitmap(
+                it,
+                Bitmap.CompressFormat.JPEG, 100
+            )
+
+            val intent = Intent(this, ViewImageActivity::class.java)
+            intent.putExtra(KEY_IS_TAKE, true)
+            setResult(Activity.RESULT_OK, intent)
+            finish()
+        }
     }
 
     private fun File.writeBitmap(bitmap: Bitmap, format: Bitmap.CompressFormat, quality: Int) {
@@ -132,5 +146,6 @@ class DetectorActivity : AppCompatActivity() {
 
     companion object {
         const val TAG = "MainActivity"
+        const val KEY_IS_TAKE = "is_take"
     }
 }
