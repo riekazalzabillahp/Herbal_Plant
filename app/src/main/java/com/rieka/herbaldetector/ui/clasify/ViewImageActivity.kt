@@ -13,6 +13,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.ImageCapture
+import com.rieka.herbaldetector.ResultActivity
 import com.rieka.herbaldetector.databinding.ActivityViewImageBinding
 import com.rieka.herbaldetector.ui.createCustomTempFile
 import com.rieka.herbaldetector.ui.detector.DetectorActivity
