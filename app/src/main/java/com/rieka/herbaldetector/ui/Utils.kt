@@ -1,4 +1,4 @@
-package com.rieka.herbaldetector.UI
+package com.rieka.herbaldetector.ui
 
 import android.app.Application
 import android.content.Context

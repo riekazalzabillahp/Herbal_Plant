@@ -6,8 +6,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
-import android.view.inputmethod.EditorInfo
-import androidx.appcompat.widget.SearchView
 //import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +16,7 @@ import java.io.IOException
 import java.nio.charset.StandardCharsets
 import java.util.*
 import com.rieka.herbaldetector.Adapter.MainAdapter
-import com.rieka.herbaldetector.Model.Tanaman
+import com.rieka.herbaldetector.model.Tanaman
 import com.rieka.herbaldetector.databinding.ActivityGalleryBinding
 
 class GalleryActivity : AppCompatActivity() {

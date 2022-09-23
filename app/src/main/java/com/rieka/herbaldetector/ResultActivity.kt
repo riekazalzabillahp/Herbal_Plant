@@ -8,7 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import com.rieka.herbaldetector.Model.Tanaman
+import com.rieka.herbaldetector.model.Tanaman
 
 class ResultActivity : AppCompatActivity()  {
 

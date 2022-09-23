@@ -1,4 +1,4 @@
-package com.rieka.herbaldetector.Model
+package com.rieka.herbaldetector.model
 
 import java.io.Serializable
 

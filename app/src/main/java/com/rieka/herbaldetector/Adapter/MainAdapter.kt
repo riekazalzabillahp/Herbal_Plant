@@ -3,7 +3,7 @@ package com.rieka.herbaldetector.Adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.rieka.herbaldetector.Model.Tanaman
+import com.rieka.herbaldetector.model.Tanaman
 import com.rieka.herbaldetector.databinding.ListItemGalleryBinding
 
 

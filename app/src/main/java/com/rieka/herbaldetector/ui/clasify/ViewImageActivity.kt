@@ -1,6 +1,5 @@
-package com.rieka.herbaldetector.UI
+package com.rieka.herbaldetector.ui.clasify
 
-import android.R.attr
 import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
@@ -13,21 +12,22 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.camera.core.ImageCapture
-import com.rieka.herbaldetector.DetectorActivity
+import androidx.lifecycle.ViewModelProvider
+import com.rieka.herbaldetector.ui.detector.DetectorActivity
 import com.rieka.herbaldetector.databinding.ActivityViewImageBinding
+import com.rieka.herbaldetector.ui.createCustomTempFile
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
 import java.io.OutputStream
-import android.R.attr.data
 
-import android.app.Activity
-import com.rieka.herbaldetector.DetectorActivity.Companion.KEY_IS_TAKE
+import com.rieka.herbaldetector.ui.detector.DetectorActivity.Companion.KEY_IS_TAKE
 
 
 class ViewImageActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityViewImageBinding
+    private lateinit var viewModel: ClassifyViewModel
     private var image: File? = null
     private var imageCapture: ImageCapture? = null
 
@@ -35,6 +35,8 @@ class ViewImageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityViewImageBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        initViewModel()
 
         binding.btnTakephoto.setOnClickListener {
             val i = Intent(this, DetectorActivity::class.java)
@@ -46,7 +48,9 @@ class ViewImageActivity : AppCompatActivity() {
         }
 
         binding.btnSubmit.setOnClickListener {
-            Toast.makeText(this, "TES SUBMIT", Toast.LENGTH_SHORT).show()
+            val result = image?.let { img -> viewModel.getPrediction(img) }
+            Log.d("ViewImageActivity", result.toString())
+            Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -59,6 +63,7 @@ class ViewImageActivity : AppCompatActivity() {
                 if (isTake) {
                     Toast.makeText(this, "LOAD", Toast.LENGTH_SHORT).show()
                     val imgString = getExternalFilesDir("/Pictures/bitmap_test.jpg") as File
+                    image = imgString
                     Log.d("CAMERA", imgString.toString())
                     binding.imageview.setImageBitmap(
                         BitmapFactory.decodeFile(imgString?.path)
@@ -111,6 +116,10 @@ class ViewImageActivity : AppCompatActivity() {
         intent.type = "image/*"
         val chooser = Intent.createChooser(intent, "Choose a Picture")
         launcherIntentGallery.launch(chooser)
+    }
+
+    private fun initViewModel(){
+        viewModel = ViewModelProvider(this)[ClassifyViewModel::class.java]
     }
 
     companion object {

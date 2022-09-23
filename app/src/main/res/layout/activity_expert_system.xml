@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryColor500"
-    tools:context=".UI.ExpertSystemActivity">
+    tools:context=".ui.ExpertSystemActivity">
 
     <TextView
         android:id="@+id/tittle"

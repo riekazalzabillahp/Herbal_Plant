@@ -1,4 +1,4 @@
-package com.rieka.herbaldetector
+package com.rieka.herbaldetector.ui.detector
 
 import android.app.Activity
 import android.content.Intent
@@ -20,7 +20,7 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import com.google.common.util.concurrent.ListenableFuture
 import com.rieka.herbaldetector.databinding.ActivityDetectorBinding
-import com.rieka.herbaldetector.UI.ViewImageActivity
+import com.rieka.herbaldetector.ui.clasify.ViewImageActivity
 import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
