@@ -6,28 +6,26 @@ import android.content.Intent
 import android.content.Intent.ACTION_GET_CONTENT
 import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.ImageCapture
-import androidx.lifecycle.ViewModelProvider
-import com.rieka.herbaldetector.ui.detector.DetectorActivity
 import com.rieka.herbaldetector.databinding.ActivityViewImageBinding
 import com.rieka.herbaldetector.ui.createCustomTempFile
+import com.rieka.herbaldetector.ui.detector.DetectorActivity
+import com.rieka.herbaldetector.ui.detector.DetectorActivity.Companion.KEY_IS_TAKE
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
 import java.io.OutputStream
 
-import com.rieka.herbaldetector.ui.detector.DetectorActivity.Companion.KEY_IS_TAKE
-
-
 class ViewImageActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityViewImageBinding
-    private lateinit var viewModel: ClassifyViewModel
+    private val viewModel: ClassifyViewModel by viewModels()
     private var image: File? = null
     private var imageCapture: ImageCapture? = null
 
@@ -35,9 +33,7 @@ class ViewImageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityViewImageBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        initViewModel()
-
+        observeData()
         binding.btnTakephoto.setOnClickListener {
             val i = Intent(this, DetectorActivity::class.java)
             startActivityForResult(i, DETECTOR_ACTIVITY_REQUEST_CODE)
@@ -48,9 +44,13 @@ class ViewImageActivity : AppCompatActivity() {
         }
 
         binding.btnSubmit.setOnClickListener {
-            val result = image?.let { img -> viewModel.getPrediction(img) }
-            Log.d("ViewImageActivity", result.toString())
-            Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
+            image?.let { img -> viewModel.getPrediction(img) }
+        }
+    }
+
+    private fun observeData() {
+        viewModel.herbal.observe(this) {
+            Toast.makeText(this, "Prediksi : $it", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -116,10 +116,6 @@ class ViewImageActivity : AppCompatActivity() {
         intent.type = "image/*"
         val chooser = Intent.createChooser(intent, "Choose a Picture")
         launcherIntentGallery.launch(chooser)
-    }
-
-    private fun initViewModel(){
-        viewModel = ViewModelProvider(this)[ClassifyViewModel::class.java]
     }
 
     companion object {
