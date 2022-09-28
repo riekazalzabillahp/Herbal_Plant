@@ -13,6 +13,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.ImageCapture
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
+import com.rieka.herbaldetector.R
 import com.rieka.herbaldetector.ResultActivity
 import com.rieka.herbaldetector.databinding.ActivityViewImageBinding
 import com.rieka.herbaldetector.ui.createCustomTempFile
@@ -46,12 +49,25 @@ class ViewImageActivity : AppCompatActivity() {
 
         binding.btnSubmit.setOnClickListener {
             image?.let { img -> viewModel.getPrediction(img) }
+            binding.btnSubmit.isInvisible = true
+            binding.progressBar.isVisible = true
         }
     }
 
     private fun observeData() {
         viewModel.herbal.observe(this) {
+            Log.d("RESULT", it.toString())
+            val result = when (it) {
+                "Bidara" -> resources.getStringArray(R.array.bidara)
+                "Jambu" -> resources.getStringArray(R.array.jambu)
+                else -> resources.getStringArray(R.array.jambu)
+            }
+            val intent = Intent(this, ResultActivity::class.java)
+            intent.putExtra("RESULT", result)
+            startActivity(intent)
             Toast.makeText(this, "Prediksi : $it", Toast.LENGTH_SHORT).show()
+            binding.btnSubmit.isInvisible = false
+            binding.progressBar.isVisible = false
         }
     }
 

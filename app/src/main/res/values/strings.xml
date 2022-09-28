@@ -21,4 +21,18 @@
         </ol>
         ]]>
     </string>
+
+    <string-array name="bidara">
+        <item>Bidara</item>
+        <item>Ini manfaat yang tidak bermanfaat</item>
+        <item>ini cara mengolah kayaknya</item>
+        <item>img_bidara</item>
+    </string-array>
+
+    <string-array name="jambu">
+        <item>Jambu</item>
+        <item>Ini manfaat jambu yang tidak bermanfaat</item>
+        <item>ini cara mengolah jambu kayaknya</item>
+        <item>img_jambu</item>
+    </string-array>
 </resources>

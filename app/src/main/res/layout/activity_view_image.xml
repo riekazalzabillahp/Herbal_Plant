@@ -69,4 +69,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         />
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="@id/btn_submit"
+        app:layout_constraintLeft_toLeftOf="@id/btn_submit"
+        app:layout_constraintRight_toRightOf="@id/btn_submit"
+        app:layout_constraintBottom_toBottomOf="@id/btn_submit"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

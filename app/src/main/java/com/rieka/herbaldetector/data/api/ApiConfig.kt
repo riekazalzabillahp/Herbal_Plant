@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 object ApiConfig {
 
-    private const val BASE_URL = "http://10.163.1.212:80/"
+    private const val BASE_URL = "http://10.163.10.132:80/"
 
     private val okHttpClient = OkHttpClient.Builder()
         .addInterceptor(Interceptor { chain ->
